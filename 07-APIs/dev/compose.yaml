@@ -10,7 +10,7 @@
 services:
   server:
     build:
-      context: .
+      context: ..
       dockerfile: Dockerfile-local
       target: final
     ports:
@@ -20,6 +20,8 @@ services:
       - .:/src
     environment:
       - GOTRACEBACK=all
+    env_file:
+      - local.env
 
 # The commented out section below is an example of how to define a PostgreSQL
 # database that your application can use. `depends_on` tells Docker Compose to
